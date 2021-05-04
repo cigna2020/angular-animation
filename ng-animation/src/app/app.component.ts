@@ -66,4 +66,12 @@ export class AppComponent {
   animate() {
     this.boxState = this.boxState === 'end' ? 'start' : 'end';
   }
+
+  animateStart(event: AnimationEvent) {
+    console.log('start: ', event);
+  }
+
+  animateDone(event: AnimationEvent) {
+  console.log('done', event);
+  }
 }
