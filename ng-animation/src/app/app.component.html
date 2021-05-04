@@ -3,11 +3,14 @@
 <button class="btn" (click)="boxState = 'special'">Set Special State</button>
   <button (click)="visible = !visible">Toggle Visibility</button>
   <hr>
-  <div
-    class="box"
-    *ngIf="visible"
-    [@boxAnim] = 'boxState'
-    (@boxAnim.start)="animateStart($event)"
-    (@boxAnim.done)="animateDone($event)"
-  ><h4>{{ boxState | uppercase}}</h4></div>
+
+  <app-animate></app-animate>
+
+<!--  <div-->
+<!--    class="box"-->
+<!--    *ngIf="visible"-->
+<!--    [@boxAnim] = 'boxState'-->
+<!--    (@boxAnim.start)="animateStart($event)"-->
+<!--    (@boxAnim.done)="animateDone($event)"-->
+<!--  ><h4>{{ boxState | uppercase}}</h4></div>-->
 </div>
