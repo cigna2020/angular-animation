@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {animate, group, state, style, transition, trigger} from "@angular/animations";
+import {animate, group, query, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-root',
@@ -21,10 +21,16 @@ import {animate, group, state, style, transition, trigger} from "@angular/animat
       transition('end => start', animate('800ms ease-in-out')),
       // transition('special <=> *', animate(500)) // * - какое-либо состояние
       transition('special <=> *', [
-        style({background: 'green'}),
-        animate('1s', style({
-          background: 'pink'
-        })), animate(750)
+        group([
+          query('h4', animate(1500, style({
+            fontSize: '.5rem',
+            color: 'red'
+          }))),
+          style({background: 'green'}),
+          animate('1s', style({
+            background: 'pink'
+          })), animate(750)
+        ]),
       ]),
       transition('void => *', [ // void - зарезервированное слово для появление элемента в DOM
         style({opacity: 0}), animate('850ms ease-out'),
